@@ -57,13 +57,13 @@ $employees = employee::all();
             ]);
 
             employee::findOrFail($id)->update($request->all());
-            return redirect ()->back()->with('status','Employee Updated Successfully!');
+            return redirect ()->route('employee.index')->with('status','Employee Updated Successfully!');
             }
     }
 
     public function delete(int $id){
         $employees = employee::findOrFail($id);
         $employees->delete();
-        return redirect ()->back()->with('status','Employee Deleted');
+        return redirect ()->route('employee.index')->with('status','Employee Deleted Successfully!');
     }
 }
